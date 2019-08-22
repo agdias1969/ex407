@@ -14,20 +14,23 @@
   - name: set banner to /etc/motd
     lineinfile:
       path: /etc/ssh/sshd_config
-      regexp: '^#Banner'
+      regexp: '^#Banner.*'
       line: Banner /etc/motd
+      backup: yes
 
   - name: disable ssh X11Forwarding
     lineinfile:
       path: /etc/ssh/sshd_config
-      regexp: '^X11Forwarding'
+      regexp: '^X11Forwarding.*'
       line: X11Forwarding no
 
+      backup: yes
 
   - name: change MaxAuthTries to 3
     lineinfile:
       path: /etc/ssh/sshd_config
-      regexp: '^MaxAuthTries'
+      regexp: '^#MaxAuthTries.*'
       line: MaxAuthTries 3
 
+      backup: yes
     
