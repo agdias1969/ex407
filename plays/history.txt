@@ -1,0 +1,328 @@
+    6  sudo cat /etc/ansible/ansible.cfg
+   12  vi ansible.cfg 
+   14  rm ansible.cfg
+   15  ansible-config
+   16  ansible-config -v
+   17  ansible-config list
+   18  ansible-config view
+   19  ansible-config list
+   24  vi ansible.cfg
+   25  ansible-config list
+   26  vi ansible.cfg
+   30  ansible-config view | grep roles
+   31  ansible-config view
+   32  sudo ansible-config view
+   36  cat ansible.cfg 
+   37  vi ansible.cfg 
+   38  rm ansible.cfg
+   40  ansible-config
+   41  ansible-config view
+   42  ansible
+   44  ansible-config view | grep roles
+   45  echo "roles_path=/etc/ansible/roles:/usr/share/ansible/roles" > plays/ansible.cfg
+   49  cat ansible.cfg 
+   50  vi ansible.cfg 
+   51  ansible-config view | grep inventory
+   52  vi ansible.cfg 
+   54  vi plays/ansible.cfg 
+   55  ansible-ocnfig view
+   56  ansible-config view
+   57  ansible-configf view
+   58  ansible-config view
+   64  vi ansible.cfg
+   67  vi ansible.cfg
+   68  ansible-config view
+   74  vi ansible.cfg
+   76  ansible-config list
+   77  vi ansible.cfg
+   78  ansible-config list
+   80  mv ansible.cfg ansible.ceefege
+   81  ansible-config list
+   82  sudo cat /etc/ansible/ansible.cfg
+   83  sudo  less /etc/ansible/ansible.cfg
+   85  mv ansible.ceefege ansible.cfg
+   86  vi ansible.cfg 
+   87  ansible-config list
+   88  less /etc/ansible/ansible.cfg
+   89  ansible-config list
+   90  less /etc/ansible/ansible.cfg
+   91  vi ansible.cfg
+   92  less /etc/ansible/ansible.cfg
+   96  vi ansible.cfg 
+   98  ansible proxy -u automation -m ping
+  103  ansible proxy -u automation -m ping
+  109  vi ansible.cfg
+  115  ssh-copy-id -i id_rsa.pub root@ansible2
+  116  ssh-copy-id -i id_rsa.pub root@ansible3
+  117  ssh-copy-id -i id_rsa.pub root@ansible4
+  118  ssh-copy-id -i id_rsa.pub root@ansible5
+  119  ssh root@ansible2
+  120  ssh root@ansible3
+  124  ansible-doc
+  125  ansible-doc-2.7 -l
+  126  ansible-doc-2.7 -l > x
+  128  ansible proxy -u root -b false -m user -a "name=automation"
+  131  ansible all -u root -b no -m user -a "name=automation"
+  132  ansible all -u root  -m user -a "name=automation"
+  133  ssh root@ansible5
+  141  mv ansible.cfg.20190820 ansible.cfg
+  142  ansible all -u root  -m user -a "name=automation password=devops"
+  143  su - ansible5
+  144  ssh root@ansible5
+  145  ansible all -u root  -m user -a "name=automation password=devops state=absent"
+  146  ssh root@ansible5
+  147  ansible all -u root  -m user -a "name=automation password=devops"
+  148  ssh root@ansible5
+  149  ansible all -u root  -m user -a "name=automation password=devops state=absent"
+  151  ansible all  -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
+  157  vi ansible.cfg
+  167  ansible all -u root -m authorized_key  -a "user=automation key={{lookup('file','/home/automation/.ssh/id_rsa.pub)}}"
+  168  ansible proxy -u root -m openssh_keypair -a "size=2048"
+  169  ansible -v
+  170  ansible --version
+  172  ansible proxy -u root -m openssh_keypair -a "owner=automation size=2048"
+  179  ansible all -u root -m openssh_keypair -a "owner=automation size=2048"
+  183  vi ansible.cfg
+  187  ansible all -u root -m openssh_keypair -a "owner=automation size=2048"
+  188  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=/home/automation/.ssh/id_rsa"
+  189  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=id_rsa"
+  190  ansible all -u root  -m user -a "name=automation"
+  191  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=id_rsa"
+  192  ssh ansible5
+  193  ssh root@ansible5
+  194  ansible all -u root  -m user -a "name=automation password=devops state=absent"
+  195  ansible all -u root  -m user -a "name=automation"
+  196  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=/home/automation/.ssh/id_rsa.pub"
+  198  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=/home/automation/.ssh/id_rsa.pub"
+  200  ansible all -u root -m openssh_keypair -a "owner=automation size=2048 path=/tmp/id_ssh_rsa"
+  201  ssh root@ansible5
+  202  ansible all -u root -m openssh_keypair -a "owner=automation group=automation state=absent  size=2048 path=/tmp/id_ssh_rsa"
+  203  ansible-config list 
+  204  ansible-config view
+  205  ansible-config view > /tmp/x
+  206  ansible-config view > x
+  208  ansible-doc 
+  209  ansible-doc  -l | grep openssh_keypair
+  210  ansible-doc openssh_keypair
+  211  ansible all -u root -m openssh_keypair -a "owner=automation group=automation   size=2048 path=/tmp/id_ssh_rsa"
+  212  ssh root@ansible5
+  215  ssh ansible5
+  217  ansible all -u root  -m user -a "name=automation state=absent"
+  218  ssh automation@ansible5
+  219  ssh root@ansible5
+  220  ansible all -u root -m user -a "generate_ssh_key=yes password=devops name=automation"
+  221  ansible all -u root -m user -a "generate_ssh_key=yes password=devops name=automation state=absent"
+  222  ssh root@ansible2
+  223  ansible all -u root -m shell -a "rm -rf /home/automation"
+  224  ssh root@ansible5
+  226  ansible all -u root -m user -a "generate_ssh_key=yes password=devops name=automation"
+  227  ssh root@ansible2
+  229  ssh ansible5
+  230  ansible proxy -u root -m authorized_keys -a "user=automation key={{lookup('file','/home/automation/.ssh/id_rsa.pub')}}
+  231  ansible proxy -u root -m authorized_keys -a "user=automation key={{lookup('file','/home/automation/.ssh/id_rsa.pub')}}"
+  232  ansible proxy -u root -m authorized_key -a "user=automation key={{lookup('file','/home/automation/.ssh/id_rsa.pub')}}"
+  233  ssh ansible2
+  236  ansible all -u root -m authorized_key -a "user=automation key={{lookup('file','/home/automation/.ssh/id_rsa.pub')}}"
+  237  ssh ansible5
+  238  ssh ansible4
+  241  ansible -m all -u automation -m ping
+  242  ansible all -u automation -b -m ping
+  247  ssh ansible2
+  248  ssh ansible3
+  249  ssh ansible4
+  250  ssh ansible5
+  251  ansible all -u automation -b -m ping
+  257  ansible proxy -u automation -m setup
+  258  ansible proxy -u automation -m setup | grep inventory_hostname
+  259  ansible proxy -u automation -m setup | grep inventory
+  268  ansible-playbook motd.yml
+  271  ansible-playbook motd.yml
+  273  ansible-playbook motd.yml
+  275  ansible-playbook motd.yml
+  277  ansible-playbook motd.yml
+  279  ansible-playbook motd.yml
+  281  ansible-playbook motd.yml
+  283  ansible-playbook motd.yml
+  285  ansible-playbook motd.yml
+  287  ansible-playbook motd.yml
+  289  ansible-playbook motd.yml
+  291  ansible-playbook motd.yml
+  292  ssh ansible2
+  295  ansible-playbook motd.yml
+  297  ansible-playbook motd.yml
+  299  ansible-playbook motd.yml
+  300  ssh ansible2
+  309  ansible-playbook motd.yml
+  310  ssh ansible5
+  312  ansible all -u automation -b -m command -a "> /etc/motd"
+  313  ansible all -u automation -b -m raw "> /etc/motd"
+  314  ansible -u automation -b -m raw "> /etc/motd"
+  316  ansible -u automation -b -m command -a "shutdown -h now"
+  317  ansible -u automation -b -m shell -a "shutdown -h now"
+  318  ansible all -b -u automation -m shell -a "shutdown -h now"
+  373  ansible -i inventory/hosts -u automation -b -m ping
+  419  git clone https://github.com/openshift/openshift-ansible
+  420  cd openshift-ansible/
+  423  ansible all -b -u automation -m yum -a "name=docker-1.13.1 state=installed"
+  424  ansible -i inventory/hosts all -b -u automation -m yum -a "name=docker-1.13.1 state=installed"
+  432  ansible -i inventory/hosts all -b -u automation -m yum -a "name=docker-1.13.1 state=installed"
+  438  ansible -i inventory/hosts all -b -u automation -m yum -a "name=docker-1.13.1 state=installed"
+  439  ansible -i inventory/hosts all -b -u automation -m systemd -a "name=docker enabled=yes state=started"
+  442  sudo vi /etc/ansible/hosts
+  446  cd openshift-ansible
+  451  ansible-playbook prerequisites.yml 
+  452  sudo vi /etc/ansible/hosts
+  453  ansible-playbook prerequisites.yml 
+  454  sudo vi /etc/ansible/hosts
+  455  ansible-playbook prerequisites.yml 
+  456  sudo vi /etc/ansible/hosts
+  457  ansible-playbook prerequisites.yml 
+  459  ansible-playbook deploy_cluster.yml 
+  466  ansible-playbook deploy_cluster.yml 
+  472  cd openshift-ansible/playbooks/
+  474  ansible-playbook deploy_cluster.yml 
+  478  cd openshift-ansible
+  482  sudo vi /etc/ansible/hosts
+  486  sudo vi /etc/ansible/hosts
+  499  cd openshift-ansible/playbooks/
+  500  ansible-playbook deploy_cluster.yml 
+  507  ansible-playbook deploy_cluster.yml -e penshift_disable_check=docker_image_availability
+  508  ansible-playbook deploy_cluster.yml -e openshift_disable_check=docker_image_availability
+  509  ansible-playbook deploy_cluster.yml -e openshift_disable_check=docker_image_availability -e  openshift_disable_check=memory_availability
+  516  ansible masters -u automation -b -m shell -a "reboot"
+  517  ansible nodes -u automation -b -m shell -a "reboot"
+  527  ansible -i inventory/hosts all -u automation -b -m shell -a "shutdown -h now"
+  532  ansible nodes -b -u automation -m shell -a "reboot"
+  534  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  535  ansible nodes -b -u automation -m shell -a "systemctl restart firewalld"
+  536  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  537  watch -n 5 ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  538  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  539  ansible nodes -b -u automation -m shell -a "tail -500 /var/log/messages"
+  540  ansible nodes -b -u automation -m shell -a "tail  /var/log/messages"
+  541  watch -n 10 "ansible nodes -b -u automation -m shell -a "tail  /var/log/messages""
+  542  ansible nodes -b -u automation -m shell -a "tail  /var/log/messages"
+  543  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  544  ansible nodes -b -u automation -m shell -a "tail  /var/log/messages"
+  545  ansible nodes -b -u automation -m shell -a "docker images"
+  546  ansible nodes -b -u automation -m shell -a "systemctl restart docker"
+  547  ansible nodes -b -u automation -m shell -a "docker images"
+  549  ansible nodes -b -u automation -m shell -a "docker images"
+  550  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  551  ansible nodes -b -u automation -m shell -a "systemctl restart firewalld"
+  552  ansible nodes -b -u automation -m shell -a "systemctl status firewalld"
+  553  ansible nodes -b -u automation -m shell -a "systemctl status docker"
+  554  ansible nodes -b -u automation -m shell -a "systemctl restart docker"
+  555  ansible nodes -b -u automation -m shell -a "docker images"
+  556  ansible nodes -b -u automation -m shell -a "reboot"
+  557  sudo vi /etc/ansible/hosts
+  562  cd openshift-ansible
+  565  ansible-playbook deploy_cluster.yml 
+  566  ansible-playbook pre-install.yml  -e openshift_disable_check=docker_image_availability
+  568  ansible-playbook openshift-checks/pre-install.yml  -e openshift_disable_check=docker_image_availability
+  569  ansible-playbook openshift-checks/pre-install.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  572  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  574  sudo vi /etc/ansible/hosts
+  577  ansible-playbook adhoc/uninstall.yml
+  580  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  581  ansible-playbook adhoc/uninstall.yml
+  582  sudo vi /etc/ansible/hosts
+  583  ansible-playbook adhoc/uninstall.yml
+  584  sudo vi /etc/ansible/hosts
+  585  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  586  sudo vi /etc/ansible/hosts
+  587  ansible master -u automation -b -m shell -a "reboot"
+  588  ansible masters -u automation -b -m shell -a "reboot"
+  589  ansible nodes -u automation -b -m shell -a "reboot"
+  592  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  593  ansible-playbook adhoc/uninstall.yml
+  594  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  595  ansible-playbook  playbooks/openshift-node/bootstrap.yml
+  596  ansible-playbook  openshift-node/bootstrap.yml
+  597  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  598  ansible-playbook adhoc/uninstall.yml
+  599  ansible-playbook deploy_cluster.yml  -e openshift_disable_check=docker_image_availability -e openshift_disable_check=memory_availability
+  600  ansible nodes -u automation -b -m shell -a "shutdown"
+  603  ansible nodes -b -u automation -m shell -a "docker images"
+  605  ansible nodes -b -u automation -m shell -a "docker ps -a"
+  607  ansible nodes -b -u automation -m shell -a "systemctl start firewalld"
+  609  ansible nodes -b -u automation -m shell -a "systemctl enable docker"
+  610  ansible nodes -b -u automation -m shell -a "systemctl start docker"
+  612  ansible nodes -b -u automation -m shell -a "systemctl enable firewalld"
+  613  ansible nodes -b -u automation -m shell -a "systemctl restart firewalld"
+  623  ansible-playbook motd.yml
+  624  ssh ansible2
+  627  ansible-playbook motd.yml
+  632  ansible-playbook motd.yml
+  634  ansible-playbook motd.yml
+  636  ansible-playbook motd.yml
+  638  ansible-playbook motd.yml
+  640  ansible-playbook motd.yml
+  642  ansible-playbook motd.yml
+  644  ansible-playbook motd.yml
+  646  ansible-playbook motd.yml
+  648  ansible-playbook motd.yml
+  650  ansible-playbook motd.yml
+  652  ansible-playbook motd.yml
+  654  ansible-playbook motd.yml
+  656  ansible-playbook motd.yml
+  658  ansible-playbook motd.yml
+  660  ansible-playbook motd.yml
+  662  ansible-playbook motd.yml
+  664  ansible-playbook motd.yml
+  671  ansible-playbook motd.yml
+  673  ansible-playbook motd.yml
+  675  ansible-playbook motd.yml
+  676  ssh ansible5
+  677  su - ansible5
+  678  ssh ansible5
+  679  ansible-playbook motd.yml
+  680  ssh root@ansible5
+  683  ansible-playbook motd.yml
+  684  ssh root@ansible3
+  685  vi ansible5
+  686  ssh ansible5
+  688  ansible-playbook motd.yml
+  689  ssh ansible3
+  690  ssh ansible4
+  691  ansible-playbook motd.yml
+  692  ssh ansible3
+  693  ssh ansible4
+  694  ssh ansible2
+  695  ansible-playbook motd.yml
+  696  ssh ansible2
+  697  ssh ansible3
+  703  ansible -i inventory/hosts -u automation -b -m ping
+  705  ansible all -u automation -b -m ping 
+  707  sudo vi /etc/ansible/hosts
+  711  ansible -i inventory/hosts -u automation -b -m ping
+  715  ansible -i inventory/hosts  nodes -u automation -b -m ping
+  716  ansible -i inventory/hosts all  -u automation -b -m ping
+  747  ssh ansible5
+  748  ssh ansible3
+  754  ansible-playbook -i inventory/hosts motd.yml
+  755  ssh ansible4
+  756  ssh ansible3
+  757  ssh ansible2
+  762  ansible-playbook -i inventory/hosts sshd.yml 
+  764  ansible-playbook -i inventory/hosts sshd.yml 
+  765  ssh ansible2
+  766  ssh ansible3
+  767  ssh ansible4
+  770  ansible-playbook -i inventory/hosts sshd.yml 
+  771  ssh ansible3
+  772  ssh ansible4
+  775  ansible-playbook -i inventory/hosts sshd.yml 
+  777  ansible-playbook -i inventory/hosts sshd.yml 
+  779  ansible-playbook -i inventory/hosts sshd.yml 
+  780  ssh ansible4
+  783  ssh ansible2
+  784  ssh ansible3
+  785  ssh ansible4
+  786  ssh ansible5
+  788  ansible ansible2 -u automation -b -m replace -a "path=/etc/ssh/sshd_config regexp='^#Banner'  replace='Banner /etc/motd'"
+  789  ssh ansible2
+  790  ansible ansible2 -u automation -b -m lineinfile  -a "path=/etc/ssh/sshd_config regexp='^#Banner.*' line='Banner /etc/motd'"
+  791  ssh ansible2
+  792  history | grep ansible
+  794  history | grep ansible > history.txt
